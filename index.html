@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX FILE UPLOAD</title>
+</head>
+<body>
+<h1>Delay form submit</h1>
+<form id="form" method="POST" action="ajax-file-upload.php" enctype="multipart/form-data">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name"><br><br>
+
+
+    <label for="file">File</label>
+    <input type="file" id="file" name="file"><br><br>
+
+    <button type="submit">Submit</button>
+</form>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"  type="text/javascript"></script>
+<script type="text/javascript">
+    $('form').submit(function (event) {
+        event.preventDefault();
+
+        var fd = new FormData(document.getElementById("form"));
+
+        $.ajax({
+            type: 'POST',
+            url: "ajax-file-upload.php",
+            data: fd,
+            dataType: 'json',
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: function (response) {
+                console.log(response)
+               alert('success');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
