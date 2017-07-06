@@ -5,9 +5,6 @@
  * Date: 7/6/2017
  * Time: 10:08 AM
  */
-/*if ($_POST["name"]) {
-    $label = $_POST["name"];
-}*/
 
 $allowedExts = array("gif", "jpeg", "jpg", "png");
 $temp = explode(".", $_FILES["file"]["name"]);
